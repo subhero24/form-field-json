@@ -1,0 +1,29 @@
+{
+	"name": "form-fields-json",
+	"version": "0.0.1",
+	"description": "Form data to json",
+	"main": "build/index.cjs.js",
+	"module": "build/index.esm.js",
+	"types": "build/index.d.ts",
+	"scripts": {
+		"test": "uvu ./tests",
+		"lint": "eslint source --max-warnings 0",
+		"build_main": "esbuild source/index.js --outfile=build/index.cjs.js --bundle --format=cjs --minify --sourcemap",
+		"build_module": "esbuild source/index.js --outfile=build/index.esm.js --bundle --format=esm --minify --sourcemap",
+		"build": "npm run build_main && npm run build_module && cp source/index.d.ts build/index.d.ts",
+		"prepare": "npm run build"
+	},
+	"keywords": [
+		"form",
+		"fields",
+		"json"
+	],
+	"author": "SubHero",
+	"license": "MIT",
+	"devDependencies": {
+		"esbuild": "^0.14.32",
+		"eslint": "^8.12.0",
+		"prettier": "^2.6.2",
+		"uvu": "^0.5.3"
+	}
+}
